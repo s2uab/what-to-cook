@@ -1,0 +1,42 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #E4E3E1;
+  }
+  
+h1 {
+  text-align: center;
+}
+
+#ingredientList {
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+.center {
+  text-align: center;
+}
+  

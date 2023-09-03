@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>Recipes You Can Make</h1>
+    <div id="recipeList"></div>
+    <div id="test"></div>
+    <div id="result"></div>
+
+    <script src="script.js"></script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var checkedIngredientsString = localStorage.getItem("checkedIngredients");
+            if (checkedIngredientsString) {
+                var checkedIngredients = JSON.parse(checkedIngredientsString);
+
+                fetch('recipes.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        var recipesData = data.split(/\r?\n/);
+
+                        var found = false;
+
+                        recipesData.forEach(function (recipe) {
+                            if (checkedIngredients.includes(recipe.trim())) {
+                                found = true;
+                            }
+                        });
+
+                        var resultElement = document.getElementById("result");
+                        resultElement.textContent = found;
+
+                    })
+                    .catch(error => console.log(error));
+
+                localStorage.removeItem("checkedIngredients");
+            }
+        });
+    </script>
+</body>
+</html>
